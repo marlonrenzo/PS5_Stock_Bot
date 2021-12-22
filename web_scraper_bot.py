@@ -10,6 +10,7 @@ from automated_alerts import send_message
 
 URL = "https://stocktrack.ca"
 POST_CODE = "V3A 0A5"
+USER_EMAIL = "marlonrfajardo@gmail.com"
 
 PRODUCTS = ['PS5 Disc', 'PS5 Digital']
 STORE_INVENTORIES = {
@@ -166,8 +167,7 @@ def scrape_loop():
         message = generate_message(available_stock)
         # send_sms("PS5 Stock Update", message,
         #          "7782313497@txt.freedommobile.ca")
-        send_message("PS5 Stock Update", message,
-                     "marlonrfajardo@gmail.com")
+        send_message("PS5 Stock Update", message, USER_EMAIL)
 
 
 def main():
