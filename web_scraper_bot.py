@@ -1,8 +1,6 @@
 import time
-import schedule
 from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException, TimeoutException
-from selenium.webdriver.chrome.options import Options
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -65,11 +63,11 @@ STORE_INVENTORIES = {
 
 def setup_driver():
     options = webdriver.ChromeOptions()
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
     options.add_argument('--ignore-certificate-errors')
     options.add_argument('--incognito')
-    # options.add_argument('--headless')
-    driver = webdriver.Chrome(
-        ChromeDriverManager().install(), options=options)
+    driver = webdriver.Chrome(options=options)
     return driver
 
 
@@ -170,15 +168,3 @@ def scrape_loop():
         # send_sms("PS5 Stock Update", message,
         #          "7782313497@txt.freedommobile.ca")
         send_message("PS5 Stock Update", message, USER_EMAIL)
-
-
-def main():
-    schedule.every().day.at("12:00").do(scrape_loop)
-
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
-
-
-if __name__ == '__main__':
-    main()
