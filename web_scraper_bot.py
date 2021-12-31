@@ -1,4 +1,5 @@
 import time
+import schedule
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.webdriver.chrome.options import Options
@@ -7,6 +8,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 from automated_alerts import send_message
+
 
 URL = "https://stocktrack.ca"
 POST_CODE = "V3A 0A5"
@@ -171,7 +173,11 @@ def scrape_loop():
 
 
 def main():
-    scrape_loop()
+    schedule.every().day.at("12:00").do(scrape_loop)
+
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
 
 
 if __name__ == '__main__':
