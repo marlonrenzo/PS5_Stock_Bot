@@ -1,8 +1,8 @@
 import smtplib
 from email.message import EmailMessage
 
-USER = "marlon.automated.message@gmail.com"
-PASSWORD = "keeujwoxalxeotzd"
+u = "marlon.automated.message@gmail.com"
+p = "keeujwoxalxeotzd"
 
 
 def send_message(subject, body, recipient):
@@ -14,7 +14,7 @@ def send_message(subject, body, recipient):
 
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
-    server.login(USER, PASSWORD)
+    server.login(u, p)
     server.send_message(msg)
     print("Sending automated message...")
     server.quit()
