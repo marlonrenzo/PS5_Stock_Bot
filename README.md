@@ -10,4 +10,7 @@ A Selenium based web scraper that determines what stores nearby have PlayStation
 - Schedule (For scheduling what time of day to run)
 
 This project utilizes [Replit](https://replit.com) and [UptimeRobot](https://uptimerobot.com) to host and run the code daily at a set time.
+
 This bot scrapes [stocktrack.ca](https://stocktrack.ca)
+
+\*This bot was meant to be a personal project and was not intended for commercial use.\*
