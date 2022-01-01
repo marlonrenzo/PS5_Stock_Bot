@@ -10,7 +10,7 @@ def send_message(subject, body, recipient):
     msg.set_content(body)
     msg['subject'] = subject
     msg['to'] = recipient
-    msg['from'] = USER
+    msg['from'] = u
 
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
