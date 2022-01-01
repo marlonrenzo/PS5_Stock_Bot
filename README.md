@@ -9,5 +9,5 @@ A Selenium based web scraper that determines what stores nearby have PlayStation
 - Smtplib (For automatically sending an email)
 - Schedule (For scheduling what time of day to run)
 
-This project utilizes Repl.it and UptimeRobot to host and run the code daily at a set time.
+This project utilizes [Replit](replit.com) and [UptimeRobot](uptimerobot.com) to host and run the code daily at a set time.
 This bot scrapes [stocktrack.ca](stocktrack.ca)
